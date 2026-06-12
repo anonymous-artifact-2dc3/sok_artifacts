@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>PromptSecurityEval Security Leaderboard</title>
+    <link rel="stylesheet" href="./styles.css?v=20260612-anon-gzip-1" />
+  </head>
+  <body>
+    <div class="bg-shape bg-shape-a"></div>
+    <div class="bg-shape bg-shape-b"></div>
+
+    <main class="page">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">PromptSecurityEval</p>
+          <h1>Prompt Security Leaderboard</h1>
+          <p class="subtitle">
+            Protocol-aware model, attack, and defense measurements from matched
+            PromptSecurityEval experiments.
+          </p>
+        </div>
+      </header>
+
+      <section class="section">
+        <h2>Overview</h2>
+        <div id="overviewCards" class="cards"></div>
+        <p class="overview-footnote" id="overviewFootnote"></p>
+      </section>
+
+      <section class="section">
+        <h2>Model Robustness</h2>
+        <p class="section-note">
+          Sorted by no-defense ASR, lower is better. Clean ASR is the no-attack harmful-query baseline;
+          induced harmfulness is computed on matched sample identifiers.
+        </p>
+        <p class="section-note" id="modelJudgerNote">Primary judger: -</p>
+
+        <h3 class="subsection-title">Black-Box Models</h3>
+        <p class="section-note">Hosted API endpoints under black-box attack access.</p>
+        <div class="table-wrap">
+          <table id="modelApiTable" class="data-table"></table>
+        </div>
+
+        <h3 class="subsection-title">White-Box Models</h3>
+        <p class="section-note">Locally served open-weight models; white-box-only attacks are access-compatible only here.</p>
+        <div class="table-wrap">
+          <table id="modelLocalTable" class="data-table"></table>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Defense Effectiveness</h2>
+        <p class="section-note">
+          ASR Gain uses matched no-defense counterfactuals. Utility delta compares each defended endpoint
+          with its own no-defense benign-question baseline.
+        </p>
+        <h3 class="subsection-title">Black-Box-Compatible Defenses</h3>
+        <div class="table-wrap">
+          <table id="defenseBlackBoxTable" class="data-table"></table>
+        </div>
+        <h3 class="subsection-title">White-Box-Only Defenses</h3>
+        <div class="table-wrap">
+          <table id="defenseWhiteBoxTable" class="data-table"></table>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Attack Strength</h2>
+        <p class="section-note">
+          Sorted by defended residual ASR. No-defense ASR, induced harmfulness, suppression, cost,
+          and cross-model spread are reported separately.
+        </p>
+        <h3 class="subsection-title">Black-Box Attacks</h3>
+        <div class="table-wrap">
+          <table id="attackBlackBoxTable" class="data-table"></table>
+        </div>
+        <h3 class="subsection-title">White-Box-Only Attacks</h3>
+        <div class="table-wrap">
+          <table id="attackWhiteBoxTable" class="data-table"></table>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Model x Attack: No-Defense ASR</h2>
+        <p class="section-note">
+          Only no-defense runs are shown. Rows split black-box and white-box models; columns split black-box
+          and white-box-only attacks. Missing cells are not filled from defended runs.
+        </p>
+        <div id="matrixLegend" class="legend"></div>
+        <div class="table-wrap matrix-wrap">
+          <table id="matrixTable" class="data-table matrix-table"></table>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Defense x Attack: Defense Gain</h2>
+        <p class="section-note">
+          Entries are matched ASR reduction in percentage points. Positive values reduce harmful outputs;
+          negative values indicate defense backfire.
+        </p>
+        <div id="attackDefenseMatrixLegend" class="legend"></div>
+        <div class="table-wrap matrix-wrap">
+          <table id="attackDefenseMatrixTable" class="data-table matrix-table"></table>
+        </div>
+      </section>
+
+      <section class="section" id="runsSection">
+        <h2>Comparison under Evaluation Protocol</h2>
+        <p class="section-note">
+          Compare paper-compatible runs by model, attack, defense, sample, and independent judger.
+          Click a row to inspect its local placeholder samples.
+        </p>
+        <div class="filters">
+          <label>
+            Model
+            <select id="filterModel"></select>
+          </label>
+          <label>
+            Attack
+            <select id="filterAttack"></select>
+          </label>
+          <label>
+            Defense
+            <select id="filterDefense"></select>
+          </label>
+          <label>
+            Sample
+            <input id="filterSample" type="number" min="0" placeholder="sample index" />
+          </label>
+          <label>
+            Judger
+            <select id="filterJudger"></select>
+          </label>
+          <label>
+            Search
+            <input id="filterSearch" type="text" placeholder="model / attack / defense / dataset" />
+          </label>
+        </div>
+        <div id="runScopeCards" class="cards"></div>
+        <p class="section-note" id="runScopeBreakdown"></p>
+        <div class="table-wrap">
+          <table id="runsTable" class="data-table"></table>
+        </div>
+      </section>
+
+    </main>
+
+    <div id="runBreakdownModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal="true"></div>
+      <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="runModalTitle">
+        <header class="modal-header">
+          <h2 id="runModalTitle">Run Breakdown</h2>
+          <div class="modal-actions">
+            <button id="runModalClose" class="modal-close" type="button" aria-label="Close">Close</button>
+          </div>
+        </header>
+        <p class="section-note" id="runModalMeta"></p>
+        <p class="section-note" id="runModalState"></p>
+        <div class="detail">
+          <h3>Run Summary</h3>
+          <p class="section-note">Key fields and config highlights only (no full raw config dump).</p>
+          <div id="runModalSummaryCards" class="cards"></div>
+          <div class="table-wrap">
+            <table id="runModalMetaTable" class="data-table wrap-table"></table>
+          </div>
+        </div>
+        <div class="detail">
+          <h3>Samples (Overview + Breakdown)</h3>
+          <div id="runModalSamplesHeader" class="sample-merged-header"></div>
+          <div id="runModalSamples" class="sample-list"></div>
+        </div>
+      </section>
+    </div>
+
+    <script src="./app.js?v=20260612-anon-gzip-1"></script>
+  </body>
+</html>

@@ -1,0 +1,228 @@
+{
+  "artifact_name": "JailbreakDB",
+  "layout_version": "anonymous-github-safe-v1",
+  "description": "Prompt corpus records and PromptSecurity-Eval measurement records bundled with the anonymous artifact.",
+  "prompt_corpus": {
+    "text_jailbreak_unique": {
+      "source_file": "text_jailbreak_unique.csv",
+      "records": 445752,
+      "max_bytes": 89128960,
+      "parts": [
+        {
+          "path": "prompt_corpus/text_jailbreak_unique_parts/part-000.csv.gz",
+          "records": 42225,
+          "bytes": 89135506,
+          "compression": "gzip"
+        },
+        {
+          "path": "prompt_corpus/text_jailbreak_unique_parts/part-001.csv.gz",
+          "records": 10878,
+          "bytes": 89130743,
+          "compression": "gzip"
+        },
+        {
+          "path": "prompt_corpus/text_jailbreak_unique_parts/part-002.csv.gz",
+          "records": 10990,
+          "bytes": 89133226,
+          "compression": "gzip"
+        },
+        {
+          "path": "prompt_corpus/text_jailbreak_unique_parts/part-003.csv.gz",
+          "records": 133630,
+          "bytes": 89129155,
+          "compression": "gzip"
+        },
+        {
+          "path": "prompt_corpus/text_jailbreak_unique_parts/part-004.csv.gz",
+          "records": 132546,
+          "bytes": 89129387,
+          "compression": "gzip"
+        },
+        {
+          "path": "prompt_corpus/text_jailbreak_unique_parts/part-005.csv.gz",
+          "records": 78212,
+          "bytes": 89130072,
+          "compression": "gzip"
+        },
+        {
+          "path": "prompt_corpus/text_jailbreak_unique_parts/part-006.csv.gz",
+          "records": 37271,
+          "bytes": 63705370,
+          "compression": "gzip"
+        }
+      ]
+    },
+    "text_regular_unique": {
+      "source_file": "text_regular_unique.csv",
+      "records": 1094122,
+      "max_bytes": 89128960,
+      "parts": [
+        {
+          "path": "prompt_corpus/text_regular_unique_parts/part-000.csv.gz",
+          "records": 134729,
+          "bytes": 89129266,
+          "compression": "gzip"
+        },
+        {
+          "path": "prompt_corpus/text_regular_unique_parts/part-001.csv.gz",
+          "records": 230651,
+          "bytes": 89129537,
+          "compression": "gzip"
+        },
+        {
+          "path": "prompt_corpus/text_regular_unique_parts/part-002.csv.gz",
+          "records": 238165,
+          "bytes": 89129435,
+          "compression": "gzip"
+        },
+        {
+          "path": "prompt_corpus/text_regular_unique_parts/part-003.csv.gz",
+          "records": 86305,
+          "bytes": 89130132,
+          "compression": "gzip"
+        },
+        {
+          "path": "prompt_corpus/text_regular_unique_parts/part-004.csv.gz",
+          "records": 87128,
+          "bytes": 89129560,
+          "compression": "gzip"
+        },
+        {
+          "path": "prompt_corpus/text_regular_unique_parts/part-005.csv.gz",
+          "records": 88029,
+          "bytes": 89129501,
+          "compression": "gzip"
+        },
+        {
+          "path": "prompt_corpus/text_regular_unique_parts/part-006.csv.gz",
+          "records": 89220,
+          "bytes": 89130418,
+          "compression": "gzip"
+        },
+        {
+          "path": "prompt_corpus/text_regular_unique_parts/part-007.csv.gz",
+          "records": 94417,
+          "bytes": 89129054,
+          "compression": "gzip"
+        },
+        {
+          "path": "prompt_corpus/text_regular_unique_parts/part-008.csv.gz",
+          "records": 45478,
+          "bytes": 32387334,
+          "compression": "gzip"
+        }
+      ]
+    }
+  },
+  "promptsecurity_eval": {
+    "sample_records": {
+      "harmful_main": {
+        "source_file": "harmful_main.csv",
+        "records": 167200,
+        "max_bytes": 89128960,
+        "parts": [
+          {
+            "path": "promptsecurity_eval/data/sample_records/harmful_main_parts/part-000.csv.gz",
+            "records": 15192,
+            "bytes": 89130135,
+            "compression": "gzip"
+          },
+          {
+            "path": "promptsecurity_eval/data/sample_records/harmful_main_parts/part-001.csv.gz",
+            "records": 16714,
+            "bytes": 89129625,
+            "compression": "gzip"
+          },
+          {
+            "path": "promptsecurity_eval/data/sample_records/harmful_main_parts/part-002.csv.gz",
+            "records": 18581,
+            "bytes": 89130226,
+            "compression": "gzip"
+          },
+          {
+            "path": "promptsecurity_eval/data/sample_records/harmful_main_parts/part-003.csv.gz",
+            "records": 18698,
+            "bytes": 89131182,
+            "compression": "gzip"
+          },
+          {
+            "path": "promptsecurity_eval/data/sample_records/harmful_main_parts/part-004.csv.gz",
+            "records": 21486,
+            "bytes": 89130970,
+            "compression": "gzip"
+          },
+          {
+            "path": "promptsecurity_eval/data/sample_records/harmful_main_parts/part-005.csv.gz",
+            "records": 18887,
+            "bytes": 89129871,
+            "compression": "gzip"
+          },
+          {
+            "path": "promptsecurity_eval/data/sample_records/harmful_main_parts/part-006.csv.gz",
+            "records": 15357,
+            "bytes": 89129128,
+            "compression": "gzip"
+          },
+          {
+            "path": "promptsecurity_eval/data/sample_records/harmful_main_parts/part-007.csv.gz",
+            "records": 16898,
+            "bytes": 89129251,
+            "compression": "gzip"
+          },
+          {
+            "path": "promptsecurity_eval/data/sample_records/harmful_main_parts/part-008.csv.gz",
+            "records": 18463,
+            "bytes": 89136492,
+            "compression": "gzip"
+          },
+          {
+            "path": "promptsecurity_eval/data/sample_records/harmful_main_parts/part-009.csv.gz",
+            "records": 6924,
+            "bytes": 26893050,
+            "compression": "gzip"
+          }
+        ]
+      },
+      "benign_utility": {
+        "path": "promptsecurity_eval/data/sample_records/benign_utility.csv.gz",
+        "records": 9200,
+        "bytes": 40667642,
+        "compression": "gzip"
+      },
+      "baseline_calibration": {
+        "path": "promptsecurity_eval/data/sample_records/baseline_calibration.csv.gz",
+        "records": 8700,
+        "bytes": 46021293,
+        "compression": "gzip"
+      }
+    },
+    "run_records": {
+      "harmful_main": {
+        "path": "promptsecurity_eval/data/run_records/harmful_main.csv.gz",
+        "records": 1672,
+        "bytes": 1933827,
+        "compression": "gzip"
+      },
+      "benign_utility": {
+        "path": "promptsecurity_eval/data/run_records/benign_utility.csv.gz",
+        "records": 92,
+        "bytes": 87035,
+        "compression": "gzip"
+      },
+      "baseline_calibration": {
+        "path": "promptsecurity_eval/data/run_records/baseline_calibration.csv.gz",
+        "records": 87,
+        "bytes": 121231,
+        "compression": "gzip"
+      }
+    },
+    "prompt_samples": {
+      "balanced_challenge": {
+        "path": "promptsecurity_eval/data/prompt_samples/balanced_challenge.csv.gz",
+        "records": 100,
+        "bytes": 29311,
+        "compression": "gzip"
+      }
+    }
+  }
+}

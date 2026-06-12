@@ -1,0 +1,37 @@
+{
+  "dataset_name": "PromptSecurity-Eval",
+  "format": "gzip-compressed CSV shards",
+  "balanced_challenge_samples": 100,
+  "splits": [
+    {
+      "name": "harmful_main",
+      "sample_records_path": "data/sample_records/harmful_main_parts/part-*.csv.gz",
+      "run_records_path": "data/run_records/harmful_main.csv.gz",
+      "run_files": 1672,
+      "sample_records": 167200,
+      "completed_sample_records": 161849,
+      "records_with_response": 158287,
+      "completed_run_files": 1601
+    },
+    {
+      "name": "benign_utility",
+      "sample_records_path": "data/sample_records/benign_utility.csv.gz",
+      "run_records_path": "data/run_records/benign_utility.csv.gz",
+      "run_files": 92,
+      "sample_records": 9200,
+      "completed_sample_records": 9200,
+      "records_with_response": 9195,
+      "completed_run_files": 92
+    },
+    {
+      "name": "baseline_calibration",
+      "sample_records_path": "data/sample_records/baseline_calibration.csv.gz",
+      "run_records_path": "data/run_records/baseline_calibration.csv.gz",
+      "run_files": 87,
+      "sample_records": 8700,
+      "completed_sample_records": 8700,
+      "records_with_response": 8557,
+      "completed_run_files": 87
+    }
+  ]
+}
